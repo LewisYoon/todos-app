@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.nology.todos_app.category.dtos.CreateCategoryRequest;
 import io.nology.todos_app.category.entities.Category;
-import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/categories")
+@Tag(name = "Categories controller")
 public class CategoryController {
     private final CategoryService categoryService;
 
