@@ -1,6 +1,7 @@
 package io.nology.todos_app.category;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,10 @@ public class CategoryService {
         this.repo.saveAndFlush(createdCategory);
         return createdCategory;
 
+    }
+
+    public Optional<Category> findById(Long id) {
+        return this.repo.findById(id);
     }
 
 }
