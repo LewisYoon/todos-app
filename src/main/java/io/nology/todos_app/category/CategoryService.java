@@ -3,19 +3,21 @@ package io.nology.todos_app.category;
 import java.util.List;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import io.nology.todos_app.category.dtos.CreateCategoryRequest;
 import io.nology.todos_app.category.dtos.UpdateCategoryRequest;
 import io.nology.todos_app.category.entities.Category;
-import jakarta.validation.Valid;
 
 @Service
 public class CategoryService {
     private final CategoryRepository repo;
+    private final ModelMapper mapper;
 
-    public CategoryService(CategoryRepository repo) {
+    public CategoryService(CategoryRepository repo, ModelMapper mapper) {
         this.repo = repo;
+        this.mapper = mapper;
     }
 
     public List<Category> findAll() {
@@ -24,11 +26,12 @@ public class CategoryService {
     }
 
     public Category create(CreateCategoryRequest data) {
-        Category createdCategory = new Category();
-        createdCategory.setName(data.getName().trim());
+        // Category createdCategory = new Category();
+        // createdCategory.setName(data.getName().trim());
+
+        Category createdCategory = this.mapper.map(data, Category.class);
         this.repo.saveAndFlush(createdCategory);
         return createdCategory;
-
     }
 
     public Optional<Category> findById(Long id) {
@@ -51,9 +54,10 @@ public class CategoryService {
         }
 
         Category foundCategory = result.get();
-        if (data.getName() != null) {
-            foundCategory.setName(data.getName().trim());
-        }
+        // if (data.getName() != null) {
+        // foundCategory.setName(data.getName().trim());
+        // }
+        this.mapper.map(data, foundCategory);
         this.repo.saveAndFlush(foundCategory);
         return Optional.of(foundCategory);
     }
