@@ -7,7 +7,10 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    fetch("http://localhost:8080/books").then(console.log).catch(console.warn);
+    fetch("http://localhost:8080/categories")
+      .then((res) => res.json)
+      .then(console.log)
+      .catch(console.warn);
   });
   return (
     <>
