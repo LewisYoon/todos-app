@@ -1,7 +1,7 @@
-import type { todoResponse } from "../services/todo-services";
+import type { TodoResponse } from "../services/todo-services";
 
 type TodoCardProps = {
-  todo: todoResponse;
+  todo: TodoResponse;
 };
 export const TodoCard = ({ todo }: TodoCardProps) => {
   return (

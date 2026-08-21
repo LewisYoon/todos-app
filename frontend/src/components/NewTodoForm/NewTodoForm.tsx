@@ -8,16 +8,20 @@ interface NewTodoFormProps {
   onSubmit: (data: TodoFormData) => unknown;
 }
 export const NewTodoForm = ({ categories, onSubmit }: NewTodoFormProps) => {
-  const { formState, register, handleSubmit } = useForm<TodoFormData>({
+  const {
+    formState: { errors, isSubmitSuccessful },
+    register,
+    handleSubmit,
+  } = useForm({
     resolver: zodResolver(schema),
   });
-  console.log(formState);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>Title</label>
         <input type="text" {...register("title")} />
-        <small></small>
+        <small>{errors.title?.message}</small>
       </div>
       <div>
         <label>Category</label>
@@ -28,7 +32,7 @@ export const NewTodoForm = ({ categories, onSubmit }: NewTodoFormProps) => {
             </option>
           ))}
         </select>
-        <small></small>
+        <small>{errors.categoryId?.message}</small>
       </div>
       <button type="submit">Add</button>
     </form>

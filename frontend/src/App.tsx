@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import {
   type CategoryResponse,
+  createCategory,
   getAllCategories,
 } from "./services/category-services";
 import { CategoryCard } from "./components/CategoryCard";
@@ -14,6 +15,8 @@ import {
 import { TodoCard } from "./components/TodoCard";
 import { NewTodoForm } from "./components/NewTodoForm/NewTodoForm";
 import type { TodoFormData } from "./components/NewTodoForm/schema";
+import { NewCategoryForm } from "./components/NewCategoryFrom/NewCategoryForm";
+import type { CategoryFormData } from "./components/NewCategoryFrom/schema";
 
 function App() {
   const [categories, setCategories] = useState<CategoryResponse[]>([]);
@@ -27,12 +30,15 @@ function App() {
     const todo = await createTodo(data);
     setTodos([...todos, todo]);
   };
+  const handleCategorySubmit = async (data: CategoryFormData) => {
+    const category = await createCategory(data);
+    setCategories([...categories, category]);
+  };
 
   return (
     <div>
-      {categories.map((category) => (
-        <CategoryCard key={category.id} category={category} />
-      ))}
+      <NewCategoryForm onSubmit={handleCategorySubmit} />
+
       <div>
         {categories.length > 0 && (
           <NewTodoForm categories={categories} onSubmit={handleTodoSubmit} />
