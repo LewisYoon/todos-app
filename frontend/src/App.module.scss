@@ -1,0 +1,103 @@
+@import "./styles/variables.scss";
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: $accent-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1.5px;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section {
+  background: rgba(20, 22, 37, 0.4);
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: $shadow-sm;
+  backdrop-filter: blur(10px);
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.categoriesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.todosWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.emptyState {
+  text-align: center;
+  color: $text-muted;
+  padding: 32px 16px;
+  font-style: italic;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

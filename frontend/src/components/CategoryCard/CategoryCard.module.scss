@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid $accent-purple;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  transition: $transition-fast;
+  user-select: none;
+
+  &:hover {
+    background: $accent-purple;
+    border-color: rgba(168, 85, 247, 0.4);
+    transform: scale(1.03);
+    box-shadow: 0 2px 8px rgba(168, 85, 247, 0.15);
+  }
+}
