@@ -27,7 +27,28 @@ export const createTodo = async (data: TodoFormData) => {
     headers: { "Content-Type": "application/json" },
   });
   if (!response.ok) {
-    throw new Error("Failed to create book");
+    throw new Error("Failed to create todo");
   }
   return (await response.json()) as TodoResponse;
+};
+
+export const updateTodo = async (id: number, data: TodoFormData) => {
+  const response = await fetch(`${BACKEND_URL}/todos/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" },
+  });
+  if (!response.ok) {
+    throw new Error("Failed to update todo");
+  }
+  return (await response.json()) as TodoResponse;
+};
+
+export const deleteTodo = async (id: number) => {
+  const response = await fetch(`${BACKEND_URL}/todos/${id}`, {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    throw new Error("Failed to delete todo");
+  }
 };

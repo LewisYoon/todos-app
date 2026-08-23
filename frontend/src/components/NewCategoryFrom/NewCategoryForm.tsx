@@ -1,5 +1,4 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import type { CategoryResponse } from "../../services/category-services";
 import { type CategoryFormData, schema } from "./schema";
 import { useForm } from "react-hook-form";
 
@@ -17,9 +16,13 @@ export const NewCategoryForm = ({ onSubmit }: NewCategoryFormProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h1>Task Categories</h1>
       <div>
-        <label>Title</label>
-        <input type="text" {...register("name")} />
+        <input
+          type="text"
+          placeholder="type category here..."
+          {...register("name")}
+        />
         <small>{errors.name?.message}</small>
       </div>
 
