@@ -41,18 +41,26 @@ This project was developed as part of the \_nology bootcamp to demonstrate full-
 ## Screenshots
 
 ### Create Category Card
+
 <img width="539" height="190" alt="Screenshot 2026-08-24 at 12 48 36 am" src="https://github.com/user-attachments/assets/ce37665a-19e6-4932-9f08-7ae062609c70" />
+
 ### Create Todo Card
+
 <img width="345" height="305" alt="Screenshot 2026-08-24 at 12 48 14 am" src="https://github.com/user-attachments/assets/8a75dccf-4f00-4a0a-a7b7-c3276215c32a" />
+
 ### Task Card 
 <img width="540" height="332" alt="Screenshot 2026-08-24 at 12 49 25 am" src="https://github.com/user-attachments/assets/1c6dd8cb-6f37-43a3-98fb-72b97b7f6338" />
+
 ### Update Task
 
 <img width="535" height="370" alt="Screenshot 2026-08-24 at 12 51 06 am" src="https://github.com/user-attachments/assets/b0429c28-c85c-4408-914c-01741bc54829" />
 
 ### Full Screenshot
+
 <img width="1440" height="805" alt="Screenshot 2026-08-24 at 12 50 04 am" src="https://github.com/user-attachments/assets/3dd7719e-6763-4a2c-bcb5-babb559b1808" />
+
 ### Swagger API Documentation
+
 <img width="967" height="758" alt="Screenshot 2026-08-24 at 12 51 48 am" src="https://github.com/user-attachments/assets/709b78fc-37d7-4766-a99b-c344673ebd87" />
 
 ## Built With
