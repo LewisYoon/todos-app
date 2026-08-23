@@ -1,0 +1,106 @@
+// Dark/Premium Theme Color Palette
+$bg-primary: #0a0b10;
+$bg-secondary: rgba(20, 22, 37, 0.7);
+$bg-card: rgba(30, 32, 54, 0.45);
+$bg-card-hover: rgba(40, 43, 72, 0.6);
+
+$border-color: rgba(255, 255, 255, 0.08);
+$border-color-hover: rgba(255, 255, 255, 0.15);
+
+$text-primary: #f3f4f6;
+$text-secondary: #9ca3af;
+$text-muted: #6b7280;
+
+// Accents
+$accent-gradient: linear-gradient(
+  135deg,
+  #6366f1 0%,
+  #a855f7 50%,
+  #ec4899 100%
+);
+$accent-glow: 0 0 20px rgba(168, 85, 247, 0.4);
+$accent-purple: #a855f7;
+$accent-blue: #6366f1;
+$accent-pink: #ec4899;
+
+$danger-color: #ef4444;
+$danger-gradient: linear-gradient(135deg, #f87171, #ef4444);
+$success-color: #10b981;
+$success-gradient: linear-gradient(135deg, #34d399, #10b981);
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
+$shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.6);
+
+// Transitions & Animations
+$transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Glassmorphism mixin
+@mixin glass-panel {
+  background: $bg-card;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  box-shadow: $shadow-md;
+  transition: $transition-smooth;
+
+  &:hover {
+    background: $bg-card-hover;
+    border-color: $border-color-hover;
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+  }
+}
+
+// Input styles mixin
+@mixin input-field {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(15, 17, 28, 0.8);
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  color: $text-primary;
+  font-size: 14px;
+  outline: none;
+  transition: $transition-fast;
+
+  &:focus {
+    border-color: $accent-purple;
+    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.25);
+    background: rgba(15, 17, 28, 0.95);
+  }
+
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+// Button styles mixin
+@mixin primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+  background: $accent-blue;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: $transition-smooth;
+  box-shadow: $shadow-sm;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: $accent-glow;
+    opacity: 0.95;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
